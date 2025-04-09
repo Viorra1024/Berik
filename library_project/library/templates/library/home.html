@@ -1,0 +1,43 @@
+{% extends 'library/base.html' %}
+{% block title %}Library Home{% endblock %}
+
+{% block content %}
+<div class="home-container">
+  <h1><i class="fas fa-book-open-reader"></i> Welcome to the Library System</h1>
+
+  <div class="menu-grid">
+    <a href="{% url 'register_user' %}" class="menu-card">
+      <i class="fas fa-user-plus"></i>
+      <span>Register Student/Pupil</span>
+    </a>
+    <a href="{% url 'add_book' %}" class="menu-card">
+      <i class="fas fa-book-medical"></i>
+      <span>Add Book</span>
+    </a>
+    <a href="{% url 'assign_book' %}" class="menu-card">
+      <i class="fas fa-book"></i>
+      <span>Assign Book</span>
+    </a>
+    <a href="{% url 'return_book' %}" class="menu-card">
+      <i class="fas fa-book-return"></i>
+      <span>Return Book</span>
+    </a>
+    <a href="{% url 'all_books' %}" class="menu-card">
+      <i class="fas fa-list-ul"></i>
+      <span>View Books</span>
+    </a>
+    <a href="{% url 'all_users' %}" class="menu-card">
+      <i class="fas fa-users"></i>
+      <span>View All Users</span>
+    </a>
+    <a href="{% url 'file_manager' %}" class="menu-card">
+      <i class="fas fa-folder-open"></i>
+      <span>File Manager</span>
+    </a>
+    <a href="{% url 'check_user_type' %}" class="menu-card">
+      <i class="fas fa-id-card"></i>
+      <span>Check User Type</span>
+    </a>
+  </div>
+</div>
+{% endblock %}

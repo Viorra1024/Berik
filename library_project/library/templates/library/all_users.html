@@ -1,0 +1,50 @@
+{% extends 'library/base.html' %}
+{% block title %}All Users{% endblock %}
+{% block content %}
+
+<h1>📖 Registered Users</h1>
+
+<section class="user-section">
+  <h2>👨‍🎓 Students</h2>
+  <div class="user-grid">
+    {% for student in students %}
+    <div class="user-card">
+      <h3>{{ student.name }} {{ student.surname }}</h3>
+      <p><strong>Group:</strong> {{ student.group }}</p>
+      <p><strong>Books:</strong></p>
+      <ul>
+        {% for book in student.borrowed_books.all %}
+          <li>{{ book.title }}</li>
+        {% empty %}
+          <li><em>No books</em></li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="user-section">
+  <h2>👧 Pupils</h2>
+  <div class="user-grid">
+    {% for pupil in pupils %}
+    <div class="user-card">
+      <h3>{{ pupil.name }} {{ pupil.surname }}</h3>
+      <p><strong>Group:</strong> {{ pupil.group }}</p>
+      <p><strong>Age:</strong> {{ pupil.age }}</p>
+      <p><strong>Books:</strong></p>
+      <ul>
+        {% for book in pupil.borrowed_books.all %}
+          <li>{{ book.title }}</li>
+        {% empty %}
+          <li><em>No books</em></li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<a href="{% url 'home' %}" class="back-link">← Back to Home</a>
+
+{% endblock %}
